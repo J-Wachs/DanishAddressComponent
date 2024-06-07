@@ -1,0 +1,100 @@
+﻿@page "/"
+@using DanishAddressComponent
+@rendermode InteractiveServer
+
+<PageTitle>Danish Address Component Demo</PageTitle>
+
+<h1>Danish Address Component Demo</h1>
+
+<p>The component uses the JavaScript library 'DAWA Autocomplete2' that is published by 'Styrelsen for Dataforsyning og Infrastruktur' (SDFI).</p>
+<p>SDFI has published 'DAWA Autocomplete2' under the MIT license. The library is available at Github, <a href="https://github.com/SDFIdk/dawa-autocomplete2">here</a>.</p>
+
+<div class="container">
+
+<EditForm Model="DemoUIModel" OnValidSubmit="SubmitForm" class="form-control">
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Address in Copenhagen N and S:</label>
+        <div class="col-sm-10">
+        <DanishAddress Address="@DemoUIModel.dawaAddress1"
+                       PlaceHolderText="Key in an address in Copenhagen"
+                       OnlyAccessAddresses="false"
+                       ZipCodes="2200|2300"></DanishAddress>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Address in Aarhus municipality:</label>
+        <div class="col-sm-10">
+            <DanishAddress Address="@DemoUIModel.dawaAddress2"
+                           PlaceHolderText="Key in an address in Aarhus"
+                           OnlyAccessAddresses="false"
+                           MunicipalNumbers="751"></DanishAddress>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Access address in Roskilde zipcode:</label>
+        <div class="col-sm-10">
+            <DanishAddress Address="@DemoUIModel.dawaAddress3"
+                           PlaceHolderText="Key in an access address in Roskilde"
+                           OnlyAccessAddresses="true"
+                           ZipCodes="4000"></DanishAddress>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary mt-3">Submit form</button>
+        </div>
+    </div>
+</EditForm>
+
+</div>
+@code {
+
+    [Inject]
+    protected IJSRuntime? JSRuntime { get; set; }
+
+    private class DemoFieldsForUI
+    {
+        public DAWAAddress dawaAddress1 { get; set; } = new() { Data = new() };
+        public DAWAAddress dawaAddress2 { get; set; } = new() { Data = new() };
+        public DAWAAddress dawaAddress3 { get; set; } = new() { Data = new() };
+    }
+
+    [SupplyParameterFromForm]
+    DemoFieldsForUI DemoUIModel { get; set; } = new();
+
+    protected override void OnInitialized()
+    {
+    }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender)
+        {
+        }
+    }
+    private async Task SubmitForm()
+    {
+        // Invoked when user clicks on submit button.
+
+        // Inspect the variable.
+
+        var selectedAddresses = "Selected addresses:\n\n" +
+                                DemoUIModel.dawaAddress1.Text + "\n" +
+                                DemoUIModel.dawaAddress2.Text + "\n" +
+                                DemoUIModel.dawaAddress3.Text;
+
+        await AlertDialog(selectedAddresses);
+
+    }
+
+    private async Task AlertDialog(string message)
+    {
+        if (JSRuntime is not null)
+        {
+            await JSRuntime.InvokeVoidAsync("alert", $"{message}");
+        }
+    }
+
+}

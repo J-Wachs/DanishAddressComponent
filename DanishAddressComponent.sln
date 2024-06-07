@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DanishAddressComponentDemo", "DanishAddressComponentDemo\DanishAddressComponentDemo.csproj", "{7ED29502-9AFD-41AB-9870-28E76B028432}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DanishAddressComponent", "DanishAddressComponent\DanishAddressComponent.csproj", "{1587BBCE-A466-49F6-9E45-092F55979E1E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution items", "Solution items", "{CF9D36DA-EEED-49B9-82D2-3F2DD57CB59F}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE.txt = LICENSE.txt
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7ED29502-9AFD-41AB-9870-28E76B028432}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7ED29502-9AFD-41AB-9870-28E76B028432}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7ED29502-9AFD-41AB-9870-28E76B028432}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7ED29502-9AFD-41AB-9870-28E76B028432}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1587BBCE-A466-49F6-9E45-092F55979E1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1587BBCE-A466-49F6-9E45-092F55979E1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1587BBCE-A466-49F6-9E45-092F55979E1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1587BBCE-A466-49F6-9E45-092F55979E1E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {92EBA5EE-C6E8-439D-8E9C-496B0C162C5F}
+	EndGlobalSection
+EndGlobal
