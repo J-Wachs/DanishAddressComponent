@@ -1,4 +1,5 @@
-using DanishAddressComponent;
+using DanishAddressComponent.Data;
+using DanishAddressComponent.Interface;
 using DanishAddressComponentDemo.Components;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,9 +8,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
+
 // Added for DanishAddressComponent:
 builder.Services.AddScoped<IDAWAAddressDTOBOConverter, DAWAAddressDTOBOConverter>();
 // End
+
 
 var app = builder.Build();
 

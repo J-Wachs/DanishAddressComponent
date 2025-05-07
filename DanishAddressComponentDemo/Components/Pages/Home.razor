@@ -1,5 +1,10 @@
 ﻿@page "/"
 @using DanishAddressComponent
+@using DanishAddressComponent.Data
+@using DanishAddressComponent.Data.Models
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.JSInterop
 @rendermode InteractiveServer
 
 <PageTitle>Danish Address Component Demo</PageTitle>
@@ -64,21 +69,9 @@
     [SupplyParameterFromForm]
     DemoFieldsForUI DemoUIModel { get; set; } = new();
 
-    protected override void OnInitialized()
-    {
-    }
-
-    protected override void OnAfterRender(bool firstRender)
-    {
-        if (firstRender)
-        {
-        }
-    }
     private async Task SubmitForm()
     {
         // Invoked when user clicks on submit button.
-
-        // Inspect the variable.
 
         var selectedAddresses = "Selected addresses:\n\n" +
                                 DemoUIModel.dawaAddress1.Text + "\n" +
@@ -86,9 +79,9 @@
                                 DemoUIModel.dawaAddress3.Text;
 
         await AlertDialog(selectedAddresses);
-
     }
 
+  
     private async Task AlertDialog(string message)
     {
         if (JSRuntime is not null)
@@ -96,5 +89,4 @@
             await JSRuntime.InvokeVoidAsync("alert", $"{message}");
         }
     }
-
 }
