@@ -1,6 +1,9 @@
 ﻿using System.Runtime.Serialization;
 
-public enum DAWAAutoCompleteType
+/// <summary>
+/// Danish Web Addresses types.
+/// </summary>
+public enum DAWAAddressType
 {
     Unknown,
 

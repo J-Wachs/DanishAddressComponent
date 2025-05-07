@@ -1,10 +1,12 @@
-# Danish Address Blazor component for .NET 8
+# Danish Address Blazor component
 
 The Danish Address Blazor component is used to let users key in an address in Denmark. The purpose is to ensure that the
 address entered, is a correct Danish address (roadname, roadnumber etc. spelled correctly). When the address is finally selected
 in the component, the component returns an object containing information about the address.
 
 The component can be configured to match the needs in the specific case, e.g. search for actual adress or access address.
+
+The component has been developed in .NET 9.
 
 ## Fully functional example project
 
@@ -78,12 +80,13 @@ Download the repo and open the demo project in Visual Studio. Play around with t
 To use the Danish Address component in your own projects, you must add the component project to your solution. Then you must
 add the 'IDAWWAAddressDTOBOConverter' to the Program.cs file of your project:
 
+```
 ...
 // Added for DanishAddressComponent:
 builder.Services.AddScoped<IDAWAAddressDTOBOConverter, DAWAAddressDTOBOConverter>();
 // End
 ...
-
+```
 ### Adding and using the Danish Address component in your own projects
 
 Add the Danish Address component to the relevant pages in your project.
